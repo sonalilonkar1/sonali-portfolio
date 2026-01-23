@@ -1,0 +1,43 @@
+.timeline-item {
+  padding: 8px 0 6px;
+  border-bottom: 1px dashed rgba(31, 41, 55, 0.8);
+}
+
+.timeline-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.timeline-role {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.timeline-org {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.timeline-dates {
+  font-size: 0.8rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.timeline-bullets {
+  padding-left: 18px;
+  margin-top: 3px;
+  font-size: 0.86rem;
+}
+
+.timeline-bullets li + li {
+  margin-top: 2px;
+}
+

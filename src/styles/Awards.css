@@ -1,0 +1,10 @@
+.awards-list {
+  font-size: 0.86rem;
+  list-style: none;
+  padding-left: 0;
+}
+
+.awards-list li + li {
+  margin-top: 4px;
+}
+

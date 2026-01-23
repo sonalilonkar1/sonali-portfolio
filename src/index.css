@@ -1,0 +1,100 @@
+:root {
+  --bg: #020617;
+  --bg-elevated: #020617;
+  --bg-soft: #0b1220;
+  --accent: #38bdf8;
+  --accent-soft: rgba(56, 189, 248, 0.12);
+  --border: #1e293b;
+  --border-soft: rgba(30, 64, 175, 0.5);
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --muted-soft: rgba(148, 163, 184, 0.3);
+  --shadow-soft: 0 20px 50px rgba(15, 23, 42, 0.9);
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+}
+
+:root[data-theme="light"] {
+  --bg: #f8fafc;
+  --bg-elevated: #ffffff;
+  --bg-soft: #e5edff;
+  --accent: #0369a1;
+  --accent-soft: rgba(37, 99, 235, 0.08);
+  --border: #e2e8f0;
+  --border-soft: rgba(148, 163, 184, 0.5);
+  --text: #0f172a;
+  --muted: #64748b;
+  --muted-soft: rgba(148, 163, 184, 0.35);
+  --shadow-soft: 0 18px 40px rgba(148, 163, 184, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at top, #1e293b 0, transparent 55%),
+    radial-gradient(circle at bottom, #020617 0, #020617 55%);
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+  transition: background 0.3s ease;
+}
+
+:root[data-theme="light"] body {
+  background:
+    radial-gradient(circle at top left, #e0f2fe 0, transparent 60%),
+    radial-gradient(circle at bottom right, #e2e8f0 0, #f8fafc 60%);
+  background-color: var(--bg);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.page {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 28px 20px 48px;
+}
+
+.section-anchor {
+  scroll-margin-top: 80px;
+}
+
+#top.section-anchor {
+  scroll-margin-top: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+
+.fade-in {
+  animation: fadeInUp 0.6s ease-out;
+}
+

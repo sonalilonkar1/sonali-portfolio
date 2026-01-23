@@ -1,0 +1,17 @@
+.edu-item {
+  font-size: 0.9rem;
+}
+
+.edu-degree {
+  font-weight: 600;
+}
+
+.edu-meta {
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+
+.edu-item + .edu-item {
+  margin-top: 6px;
+}
+

@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sonali Lonkar | Software Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-elevated: #020617;
+      --bg-soft: #0b1220;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --border: #1e293b;
+      --border-soft: rgba(30, 64, 175, 0.5);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --muted-soft: rgba(148, 163, 184, 0.3);
+      --shadow-soft: 0 20px 50px rgba(15, 23, 42, 0.9);
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+    }
+
+    /* Light theme overrides */
+    :root[data-theme="light"] {
+      --bg: #f8fafc;
+      --bg-elevated: #ffffff;
+      --bg-soft: #e5edff;
+      --accent: #0369a1;
+      --accent-soft: rgba(37, 99, 235, 0.08);
+      --border: #e2e8f0;
+      --border-soft: rgba(148, 163, 184, 0.5);
+      --text: #0f172a;
+      --muted: #64748b;
+      --muted-soft: rgba(148, 163, 184, 0.35);
+      --shadow-soft: 0 18px 40px rgba(148, 163, 184, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, #1e293b 0, transparent 55%),
+        radial-gradient(circle at bottom, #020617 0, #020617 55%);
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+    }
+
+    :root[data-theme="light"] body {
+      background:
+        radial-gradient(circle at top left, #e0f2fe 0, transparent 60%),
+        radial-gradient(circle at bottom right, #e2e8f0 0, #f8fafc 60%);
+      background-color: var(--bg);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Top nav */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.96),
+        rgba(15, 23, 42, 0.92),
+        transparent
+      );
+      border-bottom: 1px solid rgba(15, 23, 42, 0.9);
+    }
+
+    :root[data-theme="light"] .nav {
+      background: linear-gradient(
+        to bottom,
+        rgba(248, 250, 252, 0.98),
+        rgba(248, 250, 252, 0.94),
+        transparent
+      );
+      border-bottom: 1px solid rgba(226, 232, 240, 0.95);
+    }
+
+    .nav-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #22c55e, #16a34a);
+      box-shadow: 0 0 14px rgba(34, 197, 94, 0.9);
+    }
+
+    .nav-name {
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .nav-link {
+      padding: 4px 8px;
+      border-radius: 999px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+    }
+
+    .nav-link:hover {
+      border-color: var(--muted-soft);
+      background: rgba(15, 23, 42, 0.35);
+    }
+
+    :root[data-theme="light"] .nav-link:hover {
+      background: rgba(226, 232, 240, 0.8);
+    }
+
+    .nav-link.active {
+      border-color: var(--border-soft);
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .theme-toggle {
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      padding: 5px 10px;
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: radial-gradient(circle at top left, #0f172a, #020617);
+      cursor: pointer;
+      color: var(--muted);
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.8);
+      transition: all 0.2s ease;
+    }
+
+    :root[data-theme="light"] .theme-toggle {
+      background: #ffffff;
+      box-shadow: 0 8px 18px rgba(148, 163, 184, 0.35);
+    }
+
+    .theme-toggle:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.4);
+    }
+
+    :root[data-theme="light"] .theme-toggle:hover {
+      box-shadow: 0 10px 24px rgba(148, 163, 184, 0.45);
+    }
+
+    .theme-toggle span {
+      font-size: 0.9rem;
+    }
+
+    /* Page layout */
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 28px 20px 48px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+      gap: 24px;
+      margin-top: 10px;
+      margin-bottom: 32px;
+      align-items: center;
+    }
+
+    @media (max-width: 880px) {
+      header {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .hero-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .avatar {
+      width: 70px;
+      height: 70px;
+      border-radius: 999px;
+      background: conic-gradient(
+        from 130deg,
+        #38bdf8,
+        #0ea5e9,
+        #22c55e,
+        #a855f7,
+        #38bdf8
+      );
+      padding: 2px;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .avatar:hover {
+      transform: scale(1.05) rotate(5deg);
+    }
+
+    .avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      background:
+        radial-gradient(circle at top, #1e293b 0, transparent 55%),
+        radial-gradient(circle at bottom, #020617 0, #020617 60%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      color: #e5e7eb;
+      font-weight: 600;
+    }
+
+    :root[data-theme="light"] .avatar-inner {
+      background:
+        radial-gradient(circle at top, #e0f2fe 0, transparent 60%),
+        radial-gradient(circle at bottom, #e5e7eb 0, #e2e8f0 60%);
+      color: #0f172a;
+    }
+
+    .hero-title {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .hero-title h1 {
+      font-size: 1.9rem;
+      letter-spacing: 0.04em;
+    }
+
+    .hero-sub {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+    }
+
+    .typed-wrapper {
+      margin-top: 2px;
+      min-height: 1.4em;
+      font-size: 0.9rem;
+      color: var(--accent);
+      font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono",
+        "Courier New", monospace;
+      position: relative;
+    }
+
+    .typed-cursor {
+      display: inline-block;
+      width: 1px;
+      background: var(--accent);
+      margin-left: 3px;
+      animation: blink 0.9s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+
+    .hero-body {
+      color: var(--muted);
+      font-size: 0.93rem;
+      max-width: 520px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .hero-tag {
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px dashed var(--muted-soft);
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.9), #020617);
+      color: var(--muted);
+    }
+
+    :root[data-theme="light"] .hero-tag {
+      background: #ffffff;
+    }
+
+    .hero-links {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top left, #0f172a, #020617);
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease,
+        border-color 0.12s ease, background 0.12s ease;
+      color: var(--text);
+    }
+
+    :root[data-theme="light"] .pill {
+      background: #ffffff;
+      color: var(--text);
+    }
+
+    .pill:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.9);
+      border-color: var(--border-soft);
+      text-decoration: none;
+    }
+
+    :root[data-theme="light"] .pill:hover {
+      box-shadow: 0 10px 20px rgba(148, 163, 184, 0.4);
+    }
+
+    .pill-primary {
+      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+      color: #0b1120;
+      border-color: transparent;
+      box-shadow: 0 16px 45px rgba(56, 189, 248, 0.35);
+      font-weight: 600;
+    }
+
+    .pill-primary:hover {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 20px 50px rgba(56, 189, 248, 0.45);
+    }
+
+    .hero-right {
+      justify-self: stretch;
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top, #0f172a, #020617);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(15, 23, 42, 1);
+      box-shadow: var(--shadow-soft);
+      padding: 18px 16px 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    :root[data-theme="light"] .hero-card {
+      background: linear-gradient(135deg, #ffffff, #e0f2fe);
+      border-color: rgba(226, 232, 240, 0.95);
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      pointer-events: none;
+    }
+
+    .hero-card-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      font-size: 0.84rem;
+    }
+
+    .hero-metric {
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.75);
+      padding: 8px 10px;
+    }
+
+    :root[data-theme="light"] .hero-metric {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-metric-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .hero-metric-value {
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    .hero-metric-sub {
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 880px) {
+      main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    section {
+      margin-bottom: 22px;
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, #0f172a 0, #020617 55%);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(15, 23, 42, 1);
+      box-shadow: var(--shadow-soft);
+      padding: 18px 18px 16px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    :root[data-theme="light"] .card {
+      background: #ffffff;
+      border-color: rgba(226, 232, 240, 0.95);
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 24px 50px rgba(15, 23, 42, 0.9);
+    }
+
+    :root[data-theme="light"] .card:hover {
+      box-shadow: 0 20px 45px rgba(148, 163, 184, 0.4);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      pointer-events: none;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .card-title {
+      font-size: 1.02rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+
+    :root[data-theme="light"] .card-title {
+      color: #0f172a;
+    }
+
+    .card-subtitle {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      color: var(--accent);
+    }
+
+    /* Project filters */
+    .project-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+      font-size: 0.78rem;
+    }
+
+    .filter-chip {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.7);
+      color: var(--muted);
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.72rem;
+      transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease,
+        transform 0.1s ease;
+    }
+
+    :root[data-theme="light"] .filter-chip {
+      background: #ffffff;
+      border-color: rgba(226, 232, 240, 0.9);
+    }
+
+    .filter-chip:hover {
+      transform: translateY(-1px);
+      border-color: var(--border-soft);
+    }
+
+    .filter-chip.active {
+      background: var(--accent-soft);
+      border-color: rgba(56, 189, 248, 0.6);
+      color: var(--accent);
+    }
+
+    .project-list {
+      margin-top: 4px;
+    }
+
+    .project {
+      border-radius: 16px;
+      padding: 10px 8px 8px;
+      border: 1px solid rgba(15, 23, 42, 0.85);
+      background: rgba(15, 23, 42, 0.4);
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    :root[data-theme="light"] .project {
+      background: #f8fafc;
+      border-color: rgba(226, 232, 240, 0.9);
+    }
+
+    .project:hover {
+      border-color: var(--accent-soft);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.5);
+    }
+
+    :root[data-theme="light"] .project:hover {
+      box-shadow: 0 6px 16px rgba(148, 163, 184, 0.3);
+    }
+
+    .project-header-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: baseline;
+    }
+
+    .project-main {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .project-name {
+      font-weight: 600;
+      font-size: 0.96rem;
+    }
+
+    .project-meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    .project-tagline {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .project-toggle {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px dashed rgba(148, 163, 184, 0.4);
+    }
+
+    .project-toggle-arrow {
+      font-size: 0.7rem;
+      transition: transform 0.15s ease;
+    }
+
+    .project.open .project-toggle-arrow {
+      transform: rotate(90deg);
+    }
+
+    .project-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, opacity 0.3s ease-out, margin-top 0.3s ease-out;
+      opacity: 0;
+    }
+
+    .project.open .project-details {
+      max-height: 500px; /* sufficient for bullets */
+      opacity: 1;
+      margin-top: 6px;
+    }
+
+    .project-bullets {
+      padding-left: 18px;
+      margin-top: 2px;
+      font-size: 0.86rem;
+    }
+
+    .project-bullets li + li {
+      margin-top: 2px;
+    }
+
+    .project-links {
+      margin-top: 4px;
+      font-size: 0.83rem;
+    }
+
+    .project-links a + a {
+      margin-left: 10px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px 14px;
+      margin-top: 10px;
+    }
+
+    .skills-group h3 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .skills-group ul {
+      list-style: none;
+      font-size: 0.88rem;
+      color: var(--text);
+    }
+
+    .skills-group li + li {
+      margin-top: 2px;
+    }
+
+    .timeline-item {
+      padding: 8px 0 6px;
+      border-bottom: 1px dashed rgba(31, 41, 55, 0.8);
+    }
+
+    .timeline-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: baseline;
+    }
+
+    .timeline-role {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .timeline-org {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .timeline-dates {
+      font-size: 0.8rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .timeline-bullets {
+      padding-left: 18px;
+      margin-top: 3px;
+      font-size: 0.86rem;
+    }
+
+    .timeline-bullets li + li {
+      margin-top: 2px;
+    }
+
+    .edu-item {
+      font-size: 0.9rem;
+    }
+
+    .edu-degree {
+      font-weight: 600;
+    }
+
+    .edu-meta {
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    .edu-item + .edu-item {
+      margin-top: 6px;
+    }
+
+    .awards-list {
+      font-size: 0.86rem;
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .awards-list li + li {
+      margin-top: 4px;
+    }
+
+    .contact {
+      font-size: 0.9rem;
+    }
+
+    .contact a {
+      word-break: break-all;
+    }
+
+    footer {
+      margin-top: 24px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* Section spacing helper */
+    .section-anchor {
+      scroll-margin-top: 80px;
+    }
+
+    /* Special handling for top section - no extra margin needed */
+    #top.section-anchor {
+      scroll-margin-top: 0;
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      animation: fadeInUp 0.6s ease-out;
+    }
+  </style>
+</head>
+<body>
+  <!-- Top navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <div class="nav-dot"></div>
+        <div class="nav-name">SONALI LONKAR</div>
+      </div>
+      <div class="nav-links">
+        <button class="nav-link active" data-scroll="#top">Home</button>
+        <button class="nav-link" data-scroll="#projects">Projects</button>
+        <button class="nav-link" data-scroll="#skills">Skills</button>
+        <button class="nav-link" data-scroll="#experience">Experience</button>
+        <button class="nav-link" data-scroll="#contact">Contact</button>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+          <span id="themeIcon">🌙</span>
+          <span>Theme</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page section-anchor" id="top">
+    <!-- Hero -->
+    <header>
+      <div class="hero">
+        <div class="hero-row">
+          <div class="avatar">
+            <div class="avatar-inner">
+              SL
+            </div>
+          </div>
+          <div class="hero-title">
+            <h1>Sonali Lonkar</h1>
+            <div class="hero-sub">Software Engineer · Backend & ML/AI</div>
+            <div class="typed-wrapper">
+              <span id="typedText"></span><span class="typed-cursor"></span>
+            </div>
+          </div>
+        </div>
+        <p class="hero-body">
+          Graduate Software Engineering student at San José State University with
+          3+ years of industry experience building scalable backend systems,
+          financial APIs, and ML/AI research prototypes in Java, C++, and Python.
+        </p>
+        <div class="hero-tags">
+          <span class="hero-tag">Spring Boot &amp; Java Backend</span>
+          <span class="hero-tag">Scalable &amp; Distributed Systems</span>
+          <span class="hero-tag">ML &amp; AI for Finance &amp; NLP</span>
+          <span class="hero-tag">AWS · Docker · CI/CD</span>
+        </div>
+        <div class="hero-links">
+          <a class="pill pill-primary" href="SonaliLonkar_Resume.pdf" target="_blank" rel="noreferrer">
+            View Résumé (PDF)
+          </a>
+          <a class="pill" href="https://github.com/sonalilonkar1" target="_blank" rel="noreferrer">
+            GitHub
+          </a>
+          <a class="pill" href="https://www.linkedin.com/in/sonali-lonkar" target="_blank" rel="noreferrer">
+            LinkedIn
+          </a>
+          <a class="pill" href="mailto:sonalilonkar0301@gmail.com">
+            Email Me
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-card">
+          <div class="hero-card-title">Snapshot</div>
+          <div class="hero-grid">
+            <div class="hero-metric">
+              <div class="hero-metric-label">Experience</div>
+              <div class="hero-metric-value">3+ years</div>
+              <div class="hero-metric-sub">Backend systems &amp; APIs</div>
+            </div>
+            <div class="hero-metric">
+              <div class="hero-metric-label">Focus</div>
+              <div class="hero-metric-value">Backend · ML · AI</div>
+              <div class="hero-metric-sub">APIs, ML models, AI systems</div>
+            </div>
+            <div class="hero-metric">
+              <div class="hero-metric-label">Currently</div>
+              <div class="hero-metric-value">M.S. SJSU</div>
+              <div class="hero-metric-sub">Software Engineering</div>
+            </div>
+            <div class="hero-metric">
+              <div class="hero-metric-label">Location</div>
+              <div class="hero-metric-value">San Jose, CA</div>
+              <div class="hero-metric-sub">Open to roles</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Left column -->
+      <div>
+        <!-- Projects main -->
+        <section class="card section-anchor" id="projects">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Projects</div>
+              <div class="card-subtitle">Interactive overview</div>
+            </div>
+            <span class="badge">Click cards to expand</span>
+          </div>
+
+          <div class="project-filters">
+            <button class="filter-chip active" data-filter="all">All</button>
+            <button class="filter-chip" data-filter="backend">Backend</button>
+            <button class="filter-chip" data-filter="ml">ML / Quant</button>
+            <button class="filter-chip" data-filter="other">Other</button>
+          </div>
+
+          <div class="project-list">
+            <!-- Supermemory Assistant -->
+            <article class="project" data-category="backend">
+              <div class="project-header-row">
+                <div class="project-main">
+                  <div class="project-name">
+                    Supermemory Assistant – AI-Powered Personal Assistant with Long-Term Memory
+                  </div>
+                  <div class="project-meta">
+                    Flask · Next.js · Python · TypeScript · Gemini API · Supermemory API · December 2025
+                  </div>
+                  <p class="project-tagline">
+                    Full-stack personal assistant with dynamic, customizable modes, powered by Supermemory API for long-term memory and Google Gemini for intelligent responses.
+                  </p>
+                </div>
+                <div class="project-toggle">
+                  Details <span class="project-toggle-arrow">▶</span>
+                </div>
+              </div>
+              <div class="project-details">
+                <ul class="project-bullets">
+                  <li>
+                    Built a full-stack application with Flask backend and Next.js frontend, featuring dynamic assistant modes that maintain separate chat histories, memories, and personas while intelligently borrowing context across modes.
+                  </li>
+                  <li>
+                    Integrated Supermemory API for persistent long-term memory storage, automatic memory classification (fact, event, document), and memory graph visualization with interactive and custom SVG-based views.
+                  </li>
+                  <li>
+                    Implemented Google Gemini API for intelligent responses, web search capabilities via Parallel.ai/Exa.ai, proactive messaging system, and file upload processing with OCR support for images and document summarization.
+                  </li>
+                  <li>
+                    Developed connector system for external services (Google Drive, Notion, Calendar), calendar import via .ics files, upcoming events timeline, and n8n webhook integration for advanced workflow automation.
+                  </li>
+                </ul>
+                <div class="project-links">
+                  <a href="https://github.com/sonalilonkar1/supermemory-assistant" target="_blank" rel="noreferrer">
+                    Source (GitHub)
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Volatility Transformers -->
+            <article class="project" data-category="ml">
+              <div class="project-header-row">
+                <div class="project-main">
+                  <div class="project-name">
+                    Beyond HAR-RV: Transformers for Volatility Forecasting
+                  </div>
+                  <div class="project-meta">
+                    TFT · N-BEATS · Informer · Oxford-Man · December 2025
+                  </div>
+                  <p class="project-tagline">
+                    Deep-learning pipeline for multi-horizon volatility forecasting and risk-targeted portfolios.
+                  </p>
+                </div>
+                <div class="project-toggle">
+                  Details <span class="project-toggle-arrow">▶</span>
+                </div>
+              </div>
+              <div class="project-details">
+                <ul class="project-bullets">
+                  <li>
+                    Implemented volatility forecasting using Temporal Fusion Transformers, N-BEATS,
+                    and Informer architectures.
+                  </li>
+                  <li>
+                    Benchmarked deep models against HAR-RV and GARCH variants to quantify
+                    incremental forecast value.
+                  </li>
+                  <li>
+                    Used predicted volatility to drive risk-targeted allocation rules and adjust
+                    exposure through time.
+                  </li>
+                  <li>
+                    Backtested strategies on Oxford-Man realized volatility data, incorporating
+                    transaction cost assumptions.
+                  </li>
+                </ul>
+                <div class="project-links">
+                  <a href="https://github.com/sonalilonkar1/vol-forecasting" target="_blank" rel="noreferrer">
+                    Source (GitHub)
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Campus Marketplace -->
+            <article class="project" data-category="backend">
+              <div class="project-header-row">
+                <div class="project-main">
+                  <div class="project-name">
+                    Campus Peer-to-Peer Marketplace (MVP)
+                  </div>
+                  <div class="project-meta">
+                    React · Spring Boot 3 · MySQL · AWS · December 2025
+                  </div>
+                  <p class="project-tagline">
+                    Marketplace where students list, browse, and exchange items and services on campus.
+                  </p>
+                </div>
+                <div class="project-toggle">
+                  Details <span class="project-toggle-arrow">▶</span>
+                </div>
+              </div>
+              <div class="project-details">
+                <ul class="project-bullets">
+                  <li>
+                    Built a React SPA for students to create listings, filter by category, and track
+                    their active offers and interests.
+                  </li>
+                  <li>
+                    Implemented a Spring Boot 3 backend (Java 17) exposing REST APIs for auth,
+                    listings, images, and messaging.
+                  </li>
+                  <li>
+                    Designed a normalized MySQL schema and used Flyway migration files to keep
+                    schema changes consistent across environments.
+                  </li>
+                  <li>
+                    Containerized the backend with Docker, deployed to AWS EC2, and used Swagger +
+                    Postman collections to verify and share API contracts.
+                  </li>
+                </ul>
+                <div class="project-links">
+                  <a href="https://github.com/sonalilonkar1/cmpe202-Campus-Marketplace" target="_blank" rel="noreferrer">
+                    Source (GitHub)
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Predicting Stock Prices -->
+            <article class="project" data-category="ml">
+              <div class="project-header-row">
+                <div class="project-main">
+                  <div class="project-name">
+                    Predicting Historical Stock Prices
+                  </div>
+                  <div class="project-meta">
+                    Python · Elastic Net · XGBoost/LightGBM · GRU · December 2025
+                  </div>
+                  <p class="project-tagline">
+                    Short-horizon return prediction on NYSE stocks using factor-style features and sequence models.
+                  </p>
+                </div>
+                <div class="project-toggle">
+                  Details <span class="project-toggle-arrow">▶</span>
+                </div>
+              </div>
+              <div class="project-details">
+                <ul class="project-bullets">
+                  <li>
+                    Cleaned and aligned NYSE prices, volumes, and fundamentals; engineered
+                    normalized factor-style features and lagged signals.
+                  </li>
+                  <li>
+                    Trained Elastic Net, boosted trees (XGBoost/LightGBM), and GRU sequence
+                    models to predict short-term returns.
+                  </li>
+                  <li>
+                    Enforced publication-date lags and walk-forward validation to avoid look-ahead
+                    bias and simulate live deployment.
+                  </li>
+                  <li>
+                    Evaluated models with RMSE/MAE, direction accuracy, Sharpe ratio, and
+                    approximate transaction costs vs. S&amp;P 500 and sector ETFs.
+                  </li>
+                </ul>
+                <div class="project-links">
+                  <a href="https://github.com/sonalilonkar1/nyse-ml-pipeline" target="_blank" rel="noreferrer">
+                    Source (GitHub)
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Toxic Comment Classification -->
+            <article class="project" data-category="ml">
+              <div class="project-header-row">
+                <div class="project-main">
+                  <div class="project-name">
+                    Toxic Comment Classification – Cost-Aware Benchmark
+                  </div>
+                  <div class="project-meta">
+                    NB-SVM · BiLSTM · BERT · Civil Comments · December 2025
+                  </div>
+                  <p class="project-tagline">
+                    Comparative study of toxicity models under real-world moderation and fairness constraints.
+                  </p>
+                </div>
+                <div class="project-toggle">
+                  Details <span class="project-toggle-arrow">▶</span>
+                </div>
+              </div>
+              <div class="project-details">
+                <ul class="project-bullets">
+                  <li>
+                    Used Civil Comments dataset with time-based splits to measure generalization as
+                    language and topics drift.
+                  </li>
+                  <li>
+                    Implemented NB-SVM, BiLSTM, and BERT (plus ensembles) with class-weighted loss
+                    and top-K thresholds tuned for limited reviewer capacity.
+                  </li>
+                  <li>
+                    Measured calibration quality, ROC-AUC, and practical precision/recall at
+                    decision points relevant to moderators.
+                  </li>
+                  <li>
+                    Explored bias and fairness metrics across identity groups, combined with
+                    token-level explanations to inspect harmful patterns.
+                  </li>
+                </ul>
+                <div class="project-links">
+                  <a href="https://github.com/sonalilonkar1/toxic_comments_classification" target="_blank" rel="noreferrer">
+                    Source (GitHub)
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- ReliefCircle -->
+            <article class="project" data-category="backend">
+              <div class="project-header-row">
+                <div class="project-main">
+                  <div class="project-name">
+                    ReliefCircle – Donation & Charity Platform
+                  </div>
+                  <div class="project-meta">
+                    Spring Boot · MySQL · AWS · May 2025
+                  </div>
+                  <p class="project-tagline">
+                    Cloud-backed platform for managing charities, donation campaigns, and donors.
+                  </p>
+                </div>
+                <div class="project-toggle">
+                  Details <span class="project-toggle-arrow">▶</span>
+                </div>
+              </div>
+              <div class="project-details">
+                <ul class="project-bullets">
+                  <li>
+                    Built a distributed backend using Java Spring Boot and MySQL with entities for
+                    users, charities, campaigns, and transactions.
+                  </li>
+                  <li>
+                    Implemented role-based authentication and authorization for donors, organizers,
+                    and admins, securing access to critical workflows.
+                  </li>
+                  <li>
+                    Integrated a payment layer (via external gateway) to capture donation intents and
+                    transaction metadata reliably.
+                  </li>
+                  <li>
+                    Deployed services on AWS (e.g., RDS for persistence, EC2 for hosting) and used
+                    Amazon SNS for real-time notifications about campaign updates and donations.
+                  </li>
+                </ul>
+                <div class="project-links">
+                  <a href="https://github.com/sonalilonkar1/ReliefCircle" target="_blank" rel="noreferrer">
+                    Source (GitHub)
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Distributed Twitter Clone -->
+            <article class="project" data-category="backend">
+              <div class="project-header-row">
+                <div class="project-main">
+                  <div class="project-name">
+                    Distributed Twitter Clone – Microservices Social App
+                  </div>
+                  <div class="project-meta">
+                    Flask · MongoDB · REST · April 2025
+                  </div>
+                  <p class="project-tagline">
+                    Microservice-based social platform with timelines, follows, and fault-tolerant APIs.
+                  </p>
+                </div>
+                <div class="project-toggle">
+                  Details <span class="project-toggle-arrow">▶</span>
+                </div>
+              </div>
+              <div class="project-details">
+                <ul class="project-bullets">
+                  <li>
+                    Designed RESTful APIs in Flask for user management, posts, timelines, and
+                    social graph operations backed by MongoDB.
+                  </li>
+                  <li>
+                    Split the system into separate microservices for authentication, posting, and
+                    timeline reads, enabling independent scaling.
+                  </li>
+                  <li>
+                    Used MongoDB sharding and replication strategies to spread read/write load and
+                    maintain low-latency timelines on growing data.
+                  </li>
+                  <li>
+                    Added load balancing and basic failure handling so core flows work even when
+                    some instances are unavailable.
+                  </li>
+                </ul>
+                <div class="project-links">
+                  <a href="https://github.com/sonalilonkar1/CMPE_272_TwitterClone" target="_blank" rel="noreferrer">
+                    Source (GitHub)
+                  </a>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </section>
+      </div>
+
+      <!-- Right column -->
+      <div>
+        <!-- Skills -->
+        <section class="card section-anchor" id="skills">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Skills</div>
+              <div class="card-subtitle">Core stack</div>
+            </div>
+          </div>
+          <div class="skills-grid">
+            <div class="skills-group">
+              <h3>Languages</h3>
+              <ul>
+                <li>C++, Python</li>
+                <li>Java, JavaScript</li>
+              </ul>
+            </div>
+            <div class="skills-group">
+              <h3>Frameworks</h3>
+              <ul>
+                <li>Spring Boot, Flask</li>
+                <li>Node.js, React, Angular</li>
+              </ul>
+            </div>
+            <div class="skills-group">
+              <h3>Cloud & Infra</h3>
+              <ul>
+                <li>AWS, Docker, Kubernetes</li>
+                <li>Jenkins, Ansible, GitLab CI/CD</li>
+              </ul>
+            </div>
+            <div class="skills-group">
+              <h3>Databases</h3>
+              <ul>
+                <li>MySQL</li>
+                <li>MongoDB</li>
+              </ul>
+            </div>
+            <div class="skills-group">
+              <h3>Tools</h3>
+              <ul>
+                <li>Linux, Git, Perforce</li>
+                <li>JIRA, Postman, Maven</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Experience -->
+        <section class="card section-anchor" id="experience">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Experience</div>
+              <div class="card-subtitle">Industry background</div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">Software Developer</div>
+                <div class="timeline-org">Agnie Media Software · Pune, India</div>
+              </div>
+              <div class="timeline-dates">Jan 2021 – Mar 2022</div>
+            </div>
+            <ul class="timeline-bullets">
+              <li>
+                Designed and implemented Java Spring Boot microservices powering
+                high-performance REST APIs.
+              </li>
+              <li>
+                Automated CI/CD pipelines using Jenkins and Docker, reducing deployment
+                time by ~40%.
+              </li>
+              <li>
+                Partnered with QA and infra teams to debug performance bottlenecks and
+                optimize resource usage in pre-production and production.
+              </li>
+            </ul>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">Associate Software Engineer</div>
+                <div class="timeline-org">Gromor Finance · Mumbai, India</div>
+              </div>
+              <div class="timeline-dates">Aug 2017 – Dec 2020</div>
+            </div>
+            <ul class="timeline-bullets">
+              <li>
+                Built backend APIs backed by MySQL for core financial workflows, including
+                loans, customers, and transactions.
+              </li>
+              <li>
+                Tuned queries and endpoints, improving the response times of key services
+                by around 30%.
+              </li>
+              <li>
+                Collaborated with stakeholders to ensure data correctness and reporting
+                across business-critical systems.
+              </li>
+            </ul>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">Manufacturing Quality Engineer</div>
+                <div class="timeline-org">General Electric · Pune, India</div>
+              </div>
+              <div class="timeline-dates">Jun 2013 – Jul 2016</div>
+            </div>
+            <ul class="timeline-bullets">
+              <li>
+                Implemented automation and data tracking solutions to monitor production
+                quality and defect trends.
+              </li>
+              <li>
+                Supported root-cause analysis and continuous improvement initiatives for
+                high-volume manufacturing lines.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Education -->
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Education</div>
+              <div class="card-subtitle">Academic background</div>
+            </div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-degree">M.S. in Software Engineering</div>
+            <div class="edu-meta">
+              San José State University · Expected Dec 2026
+            </div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-degree">PG Diploma in Advanced Computing</div>
+            <div class="edu-meta">
+              CDAC Mumbai · 2017
+            </div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-degree">B.Tech in Electrical Engineering</div>
+            <div class="edu-meta">
+              Govt. College of Engineering, Amravati · 2013
+            </div>
+          </div>
+        </section>
+
+        <!-- Awards -->
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Awards</div>
+              <div class="card-subtitle">Recognition</div>
+            </div>
+          </div>
+          <ul class="awards-list">
+            <li><strong>Best Developer Award</strong> – Gromor Finance (2019)</li>
+            <li><strong>Stay Lean to Go Fast Award</strong> – GE India (2016)</li>
+          </ul>
+        </section>
+
+        <!-- Contact -->
+        <section class="card section-anchor" id="contact">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Contact</div>
+              <div class="card-subtitle">Let’s connect</div>
+            </div>
+          </div>
+          <div class="contact">
+            <p>Email: <a href="mailto:sonalilonkar0301@gmail.com">sonalilonkar0301@gmail.com</a></p>
+            <p>Phone: <a href="tel:+16692524239">+1-669-252-4239</a></p>
+            <p>Location: San Jose, CA</p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      &copy; <span id="year"></span> Sonali Lonkar · Built with HTML, CSS &amp; vanilla JS.
+    </footer>
+  </div>
+
+  <script>
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Theme toggle with localStorage
+    const root = document.documentElement;
+    const themeToggle = document.getElementById("themeToggle");
+    const themeIcon = document.getElementById("themeIcon");
+    const storedTheme = localStorage.getItem("theme");
+
+    if (storedTheme) {
+      root.setAttribute("data-theme", storedTheme);
+      themeIcon.textContent = storedTheme === "light" ? "🌞" : "🌙";
+    }
+
+    themeToggle.addEventListener("click", () => {
+      const current = root.getAttribute("data-theme") || "dark";
+      const next = current === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+      themeIcon.textContent = next === "light" ? "🌞" : "🌙";
+    });
+
+    // Typewriter effect for roles
+    const phrases = [
+      "Building backend services in Java & Spring Boot",
+      "Exploring ML for finance and NLP",
+      "Designing scalable, reliable APIs",
+      "Bridging software engineering & data"
+    ];
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let typing = true;
+    const typedEl = document.getElementById("typedText");
+
+    function typeLoop() {
+      if (!typedEl) return;
+      const current = phrases[phraseIndex];
+      if (typing) {
+        if (charIndex <= current.length) {
+          typedEl.textContent = current.slice(0, charIndex);
+          charIndex++;
+          setTimeout(typeLoop, 55);
+        } else {
+          typing = false;
+          setTimeout(typeLoop, 1400);
+        }
+      } else {
+        if (charIndex >= 0) {
+          typedEl.textContent = current.slice(0, charIndex);
+          charIndex--;
+          setTimeout(typeLoop, 30);
+        } else {
+          typing = true;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          setTimeout(typeLoop, 180);
+        }
+      }
+    }
+    typeLoop();
+
+    // Smooth scroll + active nav link
+    const navLinks = document.querySelectorAll(".nav-link[data-scroll]");
+
+    navLinks.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const target = btn.getAttribute("data-scroll");
+        const el = document.querySelector(target);
+        if (el) {
+          // Special handling for #top to account for sticky nav
+          if (target === "#top") {
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          } else {
+            el.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }
+      });
+    });
+
+    const sectionIds = ["#top", "#projects", "#skills", "#experience", "#contact"];
+    const sectionMap = sectionIds.map(id => ({
+      id,
+      el: document.querySelector(id)
+    }));
+
+    function updateActiveNav() {
+      const scrollPos = window.scrollY;
+      let currentId = "#top";
+
+      sectionMap.forEach(({ id, el }) => {
+        if (!el) return;
+        const top = el.getBoundingClientRect().top + window.scrollY - 120;
+        if (scrollPos >= top) currentId = id;
+      });
+
+      navLinks.forEach(link => {
+        if (link.getAttribute("data-scroll") === currentId) {
+          link.classList.add("active");
+        } else {
+          link.classList.remove("active");
+        }
+      });
+    }
+    window.addEventListener("scroll", updateActiveNav);
+    updateActiveNav();
+
+    // Project expand/collapse
+    const projectCards = document.querySelectorAll(".project");
+
+    projectCards.forEach(card => {
+      card.addEventListener("click", (e) => {
+        // Don't navigate if clicking a link inside the card
+        if (e.target.tagName.toLowerCase() === "a") return;
+        card.classList.toggle("open");
+      });
+    });
+
+    // Project filtering
+    const filterChips = document.querySelectorAll(".filter-chip");
+
+    filterChips.forEach(chip => {
+      chip.addEventListener("click", () => {
+        const filter = chip.getAttribute("data-filter");
+
+        filterChips.forEach(c => c.classList.remove("active"));
+        chip.classList.add("active");
+
+        projectCards.forEach(card => {
+          const category = card.getAttribute("data-category");
+          if (filter === "all" || category === filter) {
+            card.style.display = "";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
