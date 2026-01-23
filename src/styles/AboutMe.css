@@ -1,0 +1,43 @@
+.about-content {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.about-content p {
+  margin-bottom: 8px;
+}
+
+.about-content p:last-child {
+  margin-bottom: 0;
+}
+
+.about-grid {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  font-size: 0.86rem;
+}
+
+.about-section-title {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.about-list {
+  padding-left: 18px;
+  margin: 0;
+  list-style: disc;
+  color: var(--text);
+}
+
+.about-list li {
+  margin-bottom: 2px;
+}
+
+.about-list li:last-child {
+  margin-bottom: 0;
+}

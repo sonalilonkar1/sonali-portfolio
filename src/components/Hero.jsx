@@ -52,10 +52,7 @@ const Hero = () => {
           </div>
         </motion.div>
         <motion.p className="hero-body" variants={itemVariants}>
-          Graduate Software Engineering student at San Jose State University (GPA 3.6) with
-          3+ years of experience developing scalable backend systems and full-stack applications,
-          plus recent applied machine learning projects emphasizing reproducible training pipelines,
-          time-series forecasting, and model benchmarking.
+        Graduate Software Engineering student at San José State University (GPA 3.6) with 3+ years of experience building backend services, APIs, and automation in Java/Spring. Currently focused on ML projects in time-series forecasting, NLP, and AI assistants, with an emphasis on reproducible experiments and scalable systems.
         </motion.p>
         <motion.div className="hero-tags" variants={itemVariants}>
           <span className="hero-tag">Spring Boot & Java Backend</span>

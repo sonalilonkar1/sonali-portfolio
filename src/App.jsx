@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
+import AboutMe from './components/AboutMe';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Experience from './components/Experience';
@@ -26,6 +27,7 @@ function App() {
         <main>
           <div>
             <Projects />
+            <AboutMe />
           </div>
           <div>
             <Skills />
