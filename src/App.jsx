@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Analytics } from '@vercel/analytics/react';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import AboutMe from './components/AboutMe';
@@ -46,6 +47,7 @@ function App() {
           &copy; {new Date().getFullYear()} Sonali Lonkar · Built with React, Vite & Framer Motion.
         </motion.footer>
       </div>
+      <Analytics />
     </div>
   );
 }
