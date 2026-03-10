@@ -4,19 +4,14 @@ import '../styles/Experience.css';
 
 const Experience = () => {
   return (
-    <motion.section
-      className="card section-anchor"
-      id="experience"
+    <motion.div
+      className="experience-page"
       initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
     >
-      <div className="card-header">
-        <div>
-          <div className="card-title">Experience</div>
-          <div className="card-subtitle">Industry background</div>
-        </div>
+      <div className="page-header">
+        <h1>My Experience</h1>
       </div>
 
       {experience.map((item, index) => (
@@ -50,7 +45,7 @@ const Experience = () => {
           </ul>
         </motion.div>
       ))}
-    </motion.section>
+    </motion.div>
   );
 };
 

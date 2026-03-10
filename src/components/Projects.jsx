@@ -14,25 +14,18 @@ const Projects = () => {
   const filters = [
     { id: 'all', label: 'All' },
     { id: 'backend', label: 'Backend' },
-    { id: 'ml', label: 'ML / Quant' },
-    { id: 'other', label: 'Other' }
+    { id: 'ml', label: 'ML / Quant' }
   ];
 
   return (
-    <motion.section
-      className="card section-anchor"
-      id="projects"
+    <motion.div
+      className="projects-page"
       initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
     >
-      <div className="card-header">
-        <div>
-          <div className="card-title">Projects</div>
-          <div className="card-subtitle">Interactive overview</div>
-        </div>
-        <span className="badge">Click cards to expand</span>
+      <div className="page-header">
+        <h1>My Projects</h1>
       </div>
 
       <div className="project-filters">
@@ -83,9 +76,19 @@ const Projects = () => {
                     transition={{ duration: 0.3 }}
                   >
                     <ul className="project-bullets">
-                      {project.bullets.map((bullet, idx) => (
-                        <li key={idx}>{bullet}</li>
-                      ))}
+                      {project.bullets.map((bullet, idx) => {
+                        const colonIndex = bullet.indexOf(':');
+                        const hasLabel = colonIndex > 0;
+
+                        const label = hasLabel ? bullet.slice(0, colonIndex) : null;
+                        const text = hasLabel ? bullet.slice(colonIndex + 1).trim() : bullet;
+
+                        return (
+                          <li key={idx}>
+                            {hasLabel ? <strong>{label}:</strong> : null} {text}
+                          </li>
+                        );
+                      })}
                     </ul>
                     <div className="project-links">
                       {project.links.map((link, idx) => (
@@ -107,7 +110,7 @@ const Projects = () => {
           ))}
         </AnimatePresence>
       </div>
-    </motion.section>
+    </motion.div>
   );
 };
 

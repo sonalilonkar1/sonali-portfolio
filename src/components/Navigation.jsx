@@ -1,52 +1,18 @@
-import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useTheme } from '../hooks/useTheme';
 import '../styles/Navigation.css';
 
 const Navigation = () => {
-  const [activeSection, setActiveSection] = useState('top');
+  const location = useLocation();
   const [theme, toggleTheme] = useTheme();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['top', 'projects', 'about', 'skills', 'experience', 'contact'];
-      const scrollPos = window.scrollY;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = document.getElementById(sections[i]);
-        if (section) {
-          const top = section.getBoundingClientRect().top + window.scrollY - 120;
-          if (scrollPos >= top) {
-            setActiveSection(`#${sections[i]}`);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId.replace('#', ''));
-    if (element) {
-      if (sectionId === '#top') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-  };
-
   const navItems = [
-    { id: '#top', label: 'Home' },
-    { id: '#projects', label: 'Projects' },
-    { id: '#about', label: 'About' },
-    { id: '#skills', label: 'Skills' },
-    { id: '#experience', label: 'Experience' },
-    { id: '#contact', label: 'Contact' }
+    { path: '/', label: 'Home' },
+    { path: '/projects', label: 'Projects' },
+    { path: '/skills', label: 'Skills' },
+    { path: '/experience', label: 'Experience' },
+    { path: '/education', label: 'Education' }
   ];
 
   return (
@@ -67,15 +33,14 @@ const Navigation = () => {
         </div>
         <div className="nav-links">
           {navItems.map((item) => (
-            <motion.button
-              key={item.id}
-              className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
-              onClick={() => scrollToSection(item.id)}
+            <motion.div
+              key={item.path}
+              className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              {item.label}
-            </motion.button>
+              <Link to={item.path}>{item.label}</Link>
+            </motion.div>
           ))}
           <motion.button
             className="theme-toggle"

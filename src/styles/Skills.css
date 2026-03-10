@@ -1,35 +1,44 @@
+.skills-page {
+  min-height: 100vh;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  font-size: 1.2rem;
+  color: var(--muted);
+}
+
 .skills-grid {
-  column-count: 2;
-  column-gap: 14px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
   margin-top: 10px;
 }
 
-.skills-group {
-  transition: transform 0.2s ease;
-  break-inside: avoid;
-  margin-bottom: 10px;
-  page-break-inside: avoid;
-  display: inline-block;
-  width: 100%;
+/* 2 columns */
+@media (min-width: 900px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
-.skills-group h3 {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--text);
-  margin-bottom: 4px;
-  font-weight: 600;
-}
-
-.skills-group ul {
-  list-style: none;
-  font-size: 0.88rem;
-  color: var(--text);
-}
-
-.skills-group li + li {
-  margin-top: 2px;
+/* 3 columns */
+@media (min-width: 1200px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 600px) {
@@ -37,3 +46,55 @@
     column-count: 1;
   }
 }
+
+/* Skill group tile */
+.skills-group {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 14px 14px 12px;
+  background: var(--bg-elevated);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.skills-group:hover {
+  border-color: var(--accent);
+  background: var(--bg-soft);
+  transform: translateY(-2px);
+}
+
+/* Category title */
+.skills-group h3 {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--text);
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+/* Chips layout */
+.skills-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-chip {
+  font-size: 0.78rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border-soft);
+  background: var(--bg-soft);
+  color: var(--text);
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.skill-chip:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+

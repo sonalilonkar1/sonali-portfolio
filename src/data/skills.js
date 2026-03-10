@@ -1,39 +1,78 @@
 export const skills = [
   {
-    category: "Languages",
-    items: ["C++, Python", "Java, JavaScript"]
+    category: "AI / ML",
+    items: [
+      "PyTorch, PyTorch Lightning",
+      "Transformers (BERT, DistilBERT)",
+      "scikit-learn, TensorFlow/Keras",
+      "XGBoost, LightGBM",
+      "SHAP, model interpretability",
+      "Calibration, PR-AUC, F1"
+    ]
   },
   {
-    category: "Frameworks",
-    items: ["Spring Boot, Flask", "Node.js, Angular"]
+    category: "Time Series & Forecasting",
+    items: [
+      "Walk-forward validation",
+      "Multi-horizon forecasting",
+      "GRU, LSTM, MLP",
+      "TFT, Informer, N-BEATS",
+      "HAR, HARX, GARCH"
+    ]
   },
   {
-    category: "ML / Deep Learning",
-    items: ["PyTorch, PyTorch Lightning", "Hugging Face Transformers (BERT/DistilBERT)", "TensorFlow/Keras, scikit-learn", "XGBoost, LightGBM"]
+    category: "Data & Experimentation",
+    items: [
+      "pandas, NumPy, SciPy",
+      "Parquet (pyarrow)",
+      "YAML configs (PyYAML)",
+      "Makefile, shell scripting",
+      "Jupyter, notebooks",
+      "Reproducible pipelines"
+    ]
+  },
+  {
+    category: "Backend",
+    items: [
+      "Java, Spring Boot",
+      "Python, Flask",
+      "REST APIs",
+      "Microservices"
+    ]
   },
   {
     category: "Cloud & Infra",
-    items: ["AWS, Docker, Kubernetes", "Jenkins, Ansible, GitLab CI/CD"]
-  },
-  {
-    category: "Tools & Systems",
-    items: ["Linux, Git, Perforce", "JIRA, Postman, Maven"]
-  },
-  {
-    category: "Time Series / Forecasting",
-    items: ["Walk-forward validation", "Multi-horizon forecasting", "HAR/HARX, GARCH", "GRU/LSTM, TFT, Informer, N-BEATS"]
+    items: [
+      "AWS (EC2, RDS, SNS)",
+      "Docker, Kubernetes",
+      "CI/CD (Jenkins, GitLab)",
+      "Linux"
+    ]
   },
   {
     category: "Databases",
-    items: ["MySQL, MongoDB"]
+    items: [
+      "MySQL",
+      "MongoDB"
+    ]
   },
   {
-    category: "Data & Evaluation",
-    items: ["pandas, numpy, scipy", "Parquet (pyarrow)", "PR-AUC/F1, calibration", "SHAP interpretability"]
+    category: "Frontend",
+    items: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "JavaScript"
+    ]
   },
   {
-    category: "Automation & Tools",
-    items: ["YAML configs (PyYAML)", "Makefile, shell scripting", "pytest, Jupyter"]
+    category: "Tools",
+    items: [
+      "Git",
+      "Postman",
+      "JIRA",
+      "Maven",
+      "Perforce"
+    ]
   }
 ];
-

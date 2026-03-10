@@ -7,58 +7,63 @@ const Skills = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
+      transition: { staggerChildren: 0.12 }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1 }
+    hidden: { opacity: 0, y: 14 },
+    visible: { opacity: 1, y: 0 }
   };
 
+  // Split each "row" string into individual skills so each becomes its own chip.
+  // Supports comma-separated, middle-dot (·), or pipe-separated lists.
+  const splitSkills = (items) =>
+    items
+      .flatMap((row) =>
+        String(row)
+          .split(/,|\u00B7|\|/g) // comma, ·, or |
+          .map((s) => s.trim())
+          .filter(Boolean)
+      );
+
   return (
-    <motion.section
-      className="card section-anchor"
-      id="skills"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
+    <motion.div
+      className="skills-page"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
     >
-      <div className="card-header">
-        <div>
-          <div className="card-title">Skills</div>
-          <div className="card-subtitle">Core stack</div>
-        </div>
+      <div className="page-header">
+        <h1>My Skills</h1>
       </div>
-      <motion.div
-        className="skills-grid"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        {skills.map((group, index) => (
-          <motion.div
-            key={index}
-            className="skills-group"
-            variants={itemVariants}
-            whileHover={{ scale: 1.05 }}
-          >
-            <h3>{group.category}</h3>
-            <ul>
-              {group.items.map((item, idx) => (
-                <li key={idx}>{item}</li>
-              ))}
-            </ul>
-          </motion.div>
-        ))}
+
+      <motion.div className="skills-grid" variants={containerVariants}>
+        {skills.map((group, index) => {
+          const chips = splitSkills(group.items);
+
+          return (
+            <motion.div
+              key={`${group.category}-${index}`}
+              className="skills-group"
+              variants={itemVariants}
+              whileHover={{ scale: 1.02 }}
+            >
+              <h3>{group.category}</h3>
+
+              <div className="skills-chips">
+                {chips.map((skill, idx) => (
+                  <span className="skill-chip" key={`${skill}-${idx}`}>
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          );
+        })}
       </motion.div>
-    </motion.section>
+    </motion.div>
   );
 };
 
 export default Skills;
-

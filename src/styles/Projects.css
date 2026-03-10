@@ -1,3 +1,25 @@
+.projects-page {
+  min-height: 100vh;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  font-size: 1.2rem;
+  color: var(--muted);
+}
+
 .card {
   background: radial-gradient(circle at top left, #0f172a 0, #020617 55%);
   border-radius: var(--radius-xl);
@@ -105,7 +127,10 @@
 }
 
 .project-list {
-  margin-top: 4px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-top: 14px;
 }
 
 .project {
@@ -199,6 +224,17 @@
   margin-top: 2px;
 }
 
+.project-bullets li strong{
+  color: inherit;
+  font-weight: 700;
+}
+
+.project-details{
+  max-height: 220px;
+  overflow: auto;
+  padding-right: 6px;
+}
+
 .project-links {
   margin-top: 4px;
   font-size: 0.83rem;
@@ -207,4 +243,25 @@
 .project-links a + a {
   margin-left: 10px;
 }
+
+/* Important: make cards stretch nicely in grid */
+.project{
+  height: fit-content;
+}
+
+/* 2 columns on medium screens */
+@media (min-width: 900px){
+  .project-list{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+/* 3 columns on large screens */
+@media (min-width: 1200px){
+  .project-list{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 
