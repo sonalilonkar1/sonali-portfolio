@@ -14,13 +14,13 @@ const Resume = () => {
         <p>Download my resume to learn more about my experience and qualifications.</p>
         <motion.a
           className="resume-download"
-          href="/SonaliLonkar_Resume.docx"
+          href="/SonaliLonkar_Resume.pdf"
           target="_blank"
           rel="noreferrer"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          Download Resume (DOCX)
+          Download Resume (PDF)
         </motion.a>
       </div>
     </motion.div>
