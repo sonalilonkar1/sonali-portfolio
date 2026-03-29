@@ -5,11 +5,11 @@ export const education = [
   },
   {
     degree: "Post Graduate Diploma in Advanced Computing",
-    meta: "CDAC Mumbai · 2017"
+    meta: "CDAC Mumbai"
   },
   {
     degree: "B.Tech in Electrical Engineering",
-    meta: "Govt. College of Engineering, Amravati · 2013"
+    meta: "Govt. College of Engineering, Amravati"
   }
 ];
 
