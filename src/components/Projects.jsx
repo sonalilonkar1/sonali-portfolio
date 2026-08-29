@@ -13,8 +13,8 @@ const Projects = () => {
 
   const filters = [
     { id: 'all', label: 'All' },
-    { id: 'backend', label: 'Backend' },
-    { id: 'ml', label: 'ML / Quant' }
+    { id: 'backend', label: 'Backend / Cloud' },
+    { id: 'ml', label: 'AI / ML' }
   ];
 
   return (

@@ -1,6 +1,69 @@
 export const projects = [
   {
     id: 1,
+    name: "TraceAdvisor – ML-Driven Cloud Resource Recommendation System",
+    meta: "Python · ML · Google Cluster Traces · Azure Workloads · BigQuery · 2026",
+    tagline:
+      "Trace-driven ML system for recommending CPU, memory, and GPU resources before recurring cloud workloads execute.",
+    category: "ml",
+    bullets: [
+      "Problem: Cloud and AI workloads are frequently over-provisioned because users must request CPU, memory, and GPU resources before execution without knowing their actual peak demand.",
+      "Solution: Developed a trace-driven advisory approach that learns from historical executions and generates risk-aware pre-execution resource recommendations using percentile baselines, workload characteristics, and ML-based demand prediction.",
+      "My role: Responsible for modeling, calibration, and evaluation—developing the evaluation protocol, preparing BigQuery trace datasets, establishing reproducible experiments, and evaluating ModServe and Google Cluster workload baselines using chronological replay.",
+      "Tech highlights: Python · Google ClusterData 2019 · Azure workload traces · BigQuery · P90/P95/P99 modeling · ML regression · chronological trace replay · resource utilization & violation analysis"
+    ],
+    links: [
+      {
+        text: "Source (GitHub)",
+        url: "https://github.com/sonalilonkar1/masters-project"
+      }
+    ]
+  },
+
+  {
+    id: 2,
+    name: "ReceiptIQ – AI-Powered Receipt Intelligence System",
+    meta: "Python · OCR · LLM Agents · SQLite · Tesseract · May 2026",
+    tagline:
+      "Multimodal AI system that extracts, analyzes, validates, and audits receipt data through an intelligent agent workflow.",
+    category: "ml",
+    bullets: [
+      "Problem: Receipt and invoice processing requires extracting noisy visual data, answering analytical questions, and safely handling user corrections without compromising financial data integrity.",
+      "Solution: Built an AI-powered receipt intelligence system combining OCR, LLM-based intent routing, agent orchestration, database analytics, and web verification for receipt extraction and spending analysis.",
+      "My role: Implemented the end-to-end agent workflow including OCR processing, structured receipt storage, analytical queries, security checks, edit guardrails, audit trails, and automated benchmarking/testing.",
+      "Tech highlights: Python · Tesseract OCR · LLM orchestration · Phi/Mistral · SQLite · prompt caching · injection detection · agent tools · SROIE/CORD receipt datasets"
+    ],
+    links: [
+      {
+        text: "Source (GitHub)",
+        url: "https://github.com/sonalilonkar1/ReceiptIQ"
+      }
+    ]
+  },
+
+  {
+    id: 3,
+    name: "Transcripto – Cloud-Native AI Audio Transcription Platform",
+    meta: "AWS · FastAPI · Whisper · PyTorch · SQS · S3 · DynamoDB · 2026",
+    tagline:
+      "Asynchronous cloud platform for processing audio transcription jobs with distributed Whisper inference workers.",
+    category: "ml",
+    bullets: [
+      "Problem: ML-based audio transcription can be compute-intensive and slow, making synchronous request processing unsuitable for long-running audio workloads.",
+      "Solution: Built a cloud-native asynchronous architecture where audio is uploaded directly to S3, jobs are queued through SQS, distributed workers run Whisper inference, and DynamoDB tracks processing state.",
+      "My role: Served as Infrastructure Lead for the team project, focusing on the AWS infrastructure and integration required to support the asynchronous API, storage, queueing, worker, and job-tracking architecture.",
+      "Tech highlights: AWS EC2 · S3 · SQS · DynamoDB · FastAPI · OpenAI Whisper · PyTorch · asynchronous processing · presigned uploads"
+    ],
+    links: [
+      {
+        text: "Source (GitHub)",
+        url: "https://github.com/AB-SJSU/Transcripto"
+      }
+    ]
+  },
+
+  {
+    id: 4,
     name: "Deep Learning - Volatility Forecasting (DL_Project)",
     meta: "PyTorch Lightning · TFT · Informer · N-BEATS · GRU/LSTM · December 2025",
     tagline:
@@ -16,7 +79,7 @@ export const projects = [
   },
 
   {
-    id: 2,
+    id: 5,
     name: "Toxic Comment Classification: Interpretable Benchmark for Data Mining",
     meta: "DistilBERT · Transformers · PyTorch · TF-IDF · SHAP · December 2025",
     tagline:
@@ -32,7 +95,7 @@ export const projects = [
   },
 
   {
-    id: 3,
+    id: 6,
     name: "Predicting Historical Stock Prices With Machine Learning (ML_Project)",
     meta: "Python · PyTorch · XGBoost · LSTM · StandardScaler · December 2025",
     tagline:
@@ -48,7 +111,7 @@ export const projects = [
   },
 
   {
-    id: 4,
+    id: 7,
     name: "Supermemory Assistant - AI-Powered Personal Assistant",
     meta: "Flask · Next.js · Python · TypeScript · Gemini API · Supermemory API · December 2025",
     tagline:
@@ -64,7 +127,7 @@ export const projects = [
   },
 
   {
-    id: 5,
+    id: 8,
     name: "Campus peer-to-peer marketplace MVP for Software Systems",
     meta: "React · Spring Boot 3 · MySQL · AWS RDS · EC2 · Flyway · December 2025",
     tagline:
@@ -80,7 +143,7 @@ export const projects = [
   },
 
   {
-    id: 6,
+    id: 9,
     name: "ReliefCircle – Cloud-Native Donation & Charity Management Platform",
     meta: "Spring Boot · MySQL · AWS · SNS · May 2025",
     tagline: "Cloud-native platform to run donation campaigns and track funds end-to-end.",
@@ -95,7 +158,7 @@ export const projects = [
   },
 
   {
-    id: 7,
+    id: 10,
     name: "Distributed Twitter Clone – Scalable Microservice-Based System",
     meta: "Flask · MongoDB · REST · April 2025",
     tagline: "Distributed social platform using Flask, MongoDB, and REST APIs.",
@@ -108,4 +171,6 @@ export const projects = [
     ],
     links: [{ text: "Source (GitHub)", url: "https://github.com/sonalilonkar1/CMPE_272_TwitterClone" }]
   }
+
+  
 ];
