@@ -20,16 +20,16 @@ const AboutMe = () => {
 
       <div className="about-content">
         <p>
-        I'm a software engineer who enjoys working at the intersection of backend systems and applied machine learning. I started my career in manufacturing as a Quality Engineer at GE India, where I spent a lot of time thinking about reliability, process, and data. That pushed me toward software and automation, and I eventually moved into backend engineering roles at Gromor Finance and Agnie Media Software.
+        I&apos;m a software engineer who enjoys working at the intersection of backend systems and applied machine learning. I started my career in manufacturing as a Quality Engineer at GE India, where I spent a lot of time thinking about reliability, process, and data. That pushed me toward software and automation, and I eventually moved into backend engineering roles at Gromor Finance and Agnie Media Software.
         </p>
         <p>
         At Gromor and Agnie I built and maintained Java Spring Boot microservices and MySQL-backed APIs for financial workflows. I liked the mix of business rules, data modeling, and performance tuning, but I wanted to go deeper into ML and system design, which led me to the M.S. in Software Engineering program at San José State University.
         </p>
         <p>
-        Recently I've been working on projects in volatility forecasting, toxic comment classification, and AI assistants, with a strong focus on clean experimentation, walk-forward validation, and making models practical enough to deploy. I enjoy problems where I have to think about both the model and the system it runs in.
+        Recently I&apos;ve been working on projects in volatility forecasting, toxic comment classification, and AI assistants, with a strong focus on clean experimentation, walk-forward validation, and making models practical enough to deploy. I enjoy problems where I have to think about both the model and the system it runs in.
         </p>
         <p>
-        <strong>I'm currently looking for opportunities where I can contribute as a backend / ML engineer and keep growing my skills in scalable systems and applied ML.</strong>
+        <strong>I&apos;m currently looking for opportunities where I can contribute as a backend / ML engineer and keep growing my skills in scalable systems and applied ML.</strong>
         </p>
       </div>
 

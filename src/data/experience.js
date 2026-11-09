@@ -1,6 +1,24 @@
 // src/data/experience.js
 export const experience = [
   {
+    role: "AI/ML Intern · Lead AI Engineer",
+    org: "PMA · Remote",
+    dates: "Oct 2026 – Present",
+    description:
+      "Leading AI engineering for ShopAgent product development, spanning agent workflows, tool and system design, evaluation infrastructure, and reliability."
+  },
+  {
+    role: "Research Assistant – Autonomous Driving Simulation",
+    org: "San José State University · San Jose, CA",
+    dates: "Aug 2026 – Present",
+    bullets: [
+      "Contributing to autonomous-driving research using CARLA through reproducible simulation experiments, scenario-based testing, data collection, and analysis of vehicle behavior."
+    ]
+  },
+  
+  
+  
+  {
     role: "Software Developer",
     org: "Agnie Media Software · Pune, India",
     dates: "Jan 2021 – Mar 2022",

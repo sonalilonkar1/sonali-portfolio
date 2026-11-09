@@ -14,7 +14,7 @@ const Contact = () => {
       <div className="card-header">
         <div>
           <div className="card-title">Contact</div>
-          <div className="card-subtitle">Let's connect</div>
+          <div className="card-subtitle">Let&apos;s connect</div>
         </div>
       </div>
       <motion.div
@@ -40,4 +40,3 @@ const Contact = () => {
 };
 
 export default Contact;
-

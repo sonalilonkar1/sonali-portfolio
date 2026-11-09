@@ -1,13 +1,25 @@
 export const skills = [
   {
+    category: "AI Engineering",
+    items: [
+      "LLM APIs",
+      "Agentic Workflows",
+      "Tool Calling",
+      "Model Evaluation",
+      "Prompt Engineering",
+      "OCR",
+      "AI Guardrails"
+    ]
+  },
+  {
     category: "AI / ML",
     items: [
-      "PyTorch, PyTorch Lightning",
-      "Transformers (BERT, DistilBERT)",
-      "scikit-learn, TensorFlow/Keras",
-      "XGBoost, LightGBM",
-      "SHAP, model interpretability",
-      "Calibration, PR-AUC, F1"
+      "PyTorch",
+      "PyTorch Lightning",
+      "Hugging Face Transformers",
+      "scikit-learn",
+      "TensorFlow/Keras",
+      "XGBoost"
     ]
   },
   {

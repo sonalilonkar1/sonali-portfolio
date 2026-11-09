@@ -11,7 +11,8 @@ const Experience = () => {
       transition={{ duration: 0.6 }}
     >
       <div className="page-header">
-        <h1>My Experience</h1>
+        <h1>Experience</h1>
+        <p>AI/ML · Research · Software Engineering</p>
       </div>
 
       {experience.map((item, index) => (
@@ -31,7 +32,7 @@ const Experience = () => {
             <div className="timeline-dates">{item.dates}</div>
           </div>
           <ul className="timeline-bullets">
-            {item.bullets.map((bullet, idx) => (
+            {(item.bullets ?? (item.description ? [item.description] : [])).map((bullet, idx) => (
               <motion.li
                 key={idx}
                 initial={{ opacity: 0 }}
@@ -50,4 +51,3 @@ const Experience = () => {
 };
 
 export default Experience;
-

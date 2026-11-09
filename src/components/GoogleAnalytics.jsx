@@ -16,9 +16,9 @@ export default function GoogleAnalytics() {
 
       // Initialize gtag
       window.dataLayer = window.dataLayer || [];
-      function gtag(...args) {
+      const gtag = (...args) => {
         window.dataLayer.push(args);
-      }
+      };
       gtag('js', new Date());
       gtag('config', GA_MEASUREMENT_ID, {
         page_path: window.location.pathname,

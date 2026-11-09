@@ -4,9 +4,9 @@ import '../styles/Hero.css';
 
 const Hero = () => {
   const phrases = [
-    "Building end-to-end AI/ML systems",
-    "From data pipelines to model deployment",
-    "Exploring applied machine learning",
+    "Engineering end-to-end AI/ML systems",
+    "Building reliable agentic AI workflows",
+    "Exploring AI across real-world domains",
     "Bridging AI and software engineering"
   ];
   const typedText = useTypewriter(phrases);
@@ -38,7 +38,7 @@ const Hero = () => {
           <img src="/profile.png" alt="Sonali Lonkar" className="profile-image" />
         </motion.div>
         <motion.h1 className="hero-name" variants={itemVariants}>
-          Hi, I'm <span className="name-glow">
+          Hi, I&apos;m <span className="name-glow">
             <span>S</span><span>o</span><span>n</span><span>a</span><span>l</span><span>i</span><span>&nbsp;</span><span>L</span><span>o</span><span>n</span><span>k</span><span>a</span><span>r</span>
           </span>
         </motion.h1>
@@ -47,9 +47,11 @@ const Hero = () => {
           <span className="typed-cursor">|</span>
         </motion.div>
         <motion.p className="hero-description" variants={itemVariants}>
-          <p>I’m an AI/ML-focused software engineer exploring applied machine learning across domains, working on data pipelines, modeling, evaluation, and deployment.</p>
-          <p>I enjoy building practical projects and bringing strong engineering fundamentals, including backend development with Java/Spring Boot.</p>
-          <p>Currently pursuing my M.S. in Software Engineering at SJSU.</p>
+          I’m a software engineer working across AI/ML, applied research, and software systems.
+          Currently, I lead AI engineering for product development at PMA and autonomous-driving
+          simulation research at SJSU, while pursuing my M.S. in Software Engineering.
+          I enjoy building intelligent systems from experimentation and evaluation through
+          deployment.
         </motion.p>
         <motion.div className="hero-links" variants={itemVariants}>
           <motion.a
